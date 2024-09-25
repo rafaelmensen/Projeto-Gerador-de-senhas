@@ -1,4 +1,4 @@
-// Seleção de elementos
+8// Seleção de elementos
 const generatePasswordButton = document.querySelector("#generate-password");
 const generatedPasswordElement = document.querySelector("#generated-password");
 
@@ -104,3 +104,28 @@ copyPasswordButton.addEventListener("click", (e) => {
     }, 1000);
   });
 });
+
+
+
+import pandas as pd
+
+# Lendo as planilhas
+planilha01 = pd.read_excel('planilha01.xlsx')
+planilha02 = pd.read_excel('planilha02.xlsx')
+
+# Filtrando os dados
+# Mantendo apenas as colunas necessárias
+dados_planilha01 = planilha01[['apólice', 'CPF']]
+dados_planilha02 = planilha02[['apólice', 'CPF']]
+
+# Mesclando as duas planilhas para encontrar os CPFs que são iguais e apólices que são diferentes
+resultado = pd.merge(dados_planilha01, dados_planilha02, on='CPF', suffixes=('_planilha01', '_planilha02'))
+
+# Filtrando onde as apólices são diferentes
+resultado_filtrado = resultado[resultado['apólice_planilha01'] != resultado['apólice_planilha02']]
+
+# Copiando as linhas filtradas para a nova planilha (pode ser planilha02 ou outra)
+resultado_filtrado.to_excel('planilha_resultado.xlsx', index=False)
+
+print("As linhas foram copiadas para 'planilha_resultado.xlsx'.")
+
