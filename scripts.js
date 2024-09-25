@@ -1,4 +1,4 @@
-8// Seleção de elementos
+98// Seleção de elementos
 const generatePasswordButton = document.querySelector("#generate-password");
 const generatedPasswordElement = document.querySelector("#generated-password");
 
@@ -128,4 +128,37 @@ resultado_filtrado = resultado[resultado['apólice_planilha01'] != resultado['ap
 resultado_filtrado.to_excel('planilha_resultado.xlsx', index=False)
 
 print("As linhas foram copiadas para 'planilha_resultado.xlsx'.")
+
+
+
+
+novo
+
+import pandas as pd
+
+# Lendo as planilhas
+planilha01 = pd.read_excel('planilha01.xlsx')
+planilha02 = pd.read_excel('planilha02.xlsx')
+
+# Filtrando as colunas necessárias
+dados_planilha01 = planilha01[['apólice', 'CPF']]
+dados_planilha02 = planilha02[['apólice', 'CPF']]
+
+# Mesclando as duas planilhas para encontrar os CPFs que são iguais e apólices que são diferentes
+resultado = pd.merge(dados_planilha01, dados_planilha02, on='CPF', suffixes=('_planilha01', '_planilha02'))
+
+# Filtrando onde as apólices são diferentes
+resultado_filtrado = resultado[resultado['apólice_planilha01'] != resultado['apólice_planilha02']]
+
+# Pegando os dados completos da planilha01 que atendem aos critérios
+dados_a_copiar = planilha01[planilha01['CPF'].isin(resultado_filtrado['CPF'])]
+
+# Adicionando os dados da planilha01 na planilha02
+planilha02_atualizada = pd.concat([planilha02, dados_a_copiar], ignore_index=True)
+
+# Salvando a planilha02 atualizada
+planilha02_atualizada.to_excel('planilha02_atualizada.xlsx', index=False)
+
+print("Os dados foram copiados da planilha01 para a planilha02 e salvos em 'planilha02_atualizada.xlsx'.")
+
 
