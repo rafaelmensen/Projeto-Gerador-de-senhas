@@ -95,3 +95,43 @@
     </div>
   </body>
 </html>
+
+-----------
+import pandas as pd
+from openpyxl import load_workbook
+from openpyxl.utils.dataframe import dataframe_to_rows
+
+def copiar_e_bloquear_planilha(caminho_origem, caminho_destino, intervalo_linhas=(2, 100), senha="rafa"):
+    try:
+      
+        wb_origem = load_workbook(caminho_origem)
+        ws_origem = wb_origem.active
+        
+        ws_origem.protection.sheet = True
+        ws_origem.protection.password = senha
+        wb_origem.save(caminho_origem)
+        
+        df = pd.read_excel(caminho_origem, skiprows=intervalo_linhas[0] - 1, nrows=intervalo_linhas[1] - intervalo_linhas[0] + 1)
+        
+        try:
+            wb_destino = load_workbook(caminho_destino)
+        except FileNotFoundError:
+            wb_destino = load_workbook(caminho_origem)  
+            wb_destino.remove(wb_destino.active)  
+        
+        ws_destino = wb_destino.create_sheet(title="copiados")
+        
+        for row in dataframe_to_rows(df, index=False, header=True):
+            ws_destino.append(row)
+        
+        wb_destino.save(caminho_destino)
+        
+        print(f"Dados copiados de {intervalo_linhas[0]} a {intervalo_linhas[1]} e a planilha 'planilha01' bloqueada '{senha}'.")
+
+    except Exception as e:
+        print(f" erro: {e}")
+
+# caminho_origem = 'planilha01.xlsx'
+caminho_origem = "testes\positivacao\planilha01.xlsx"
+caminho_destino = 'testes\positivacao\planilha02.xlsx'
+copiar_e_bloquear_planilha(caminho_origem, caminho_destino)
