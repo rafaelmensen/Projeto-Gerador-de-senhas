@@ -1,59 +1,23 @@
-import openpyxl as xl
 
+import openpyxl as xl
 # origem planilha 
 filename = "testes/positivacao/planilha01.xlsx"
 wb1 = xl.load_workbook(filename)
 ws1 = wb1.active
-
 # destino planilha
 filename1 = "testes/positivacao/planilha02.xlsx"
 wb2 = xl.load_workbook(filename1)
 ws2 = wb2.active
-
 # linhas e colunas 
 mr = ws1.max_row
 mc = ws1.max_column
-
 # copia do origem para destino 
 for i in range(1, mr + 1):
-    for j 
+    for j in range(1, mc + 1):
+        # ler o valores 
+        c = ws1.cell(row=i, column=j)
+        # escrever o valor para o destino 
+        ws2.cell(row=i, column=j).value = c.value
+# save do arquivo 
 wb2.save(filename1)
 
-
-import openpyxl as xl
-
-# Origem planilha 
-filename = "testes/positivacao/planilha01.xlsx"
-wb1 = xl.load_workbook(filename)
-ws1 = wb1.active
-
-# Destino planilha
-filename1 = "testes/positivacao/planilha02.xlsx"
-wb2 = xl.load_workbook(filename1)
-ws2 = wb2.active
-
-# Obter as linhas e colunas
-mr = ws1.max_row
-mc = ws1.max_column
-
-# Obter os valores já presentes na planilha de destino para evitar duplicações
-existing_entries = set()
-for row in ws2.iter_rows(min_row=2, max_row=ws2.max_row, min_col=1, max_col=2, values_only=True):
-    existing_entries.add(row)
-
-# Copiar da origem para o destino, verificando duplicatas
-for i in range(2, mr + 1):  # Inicia a partir da segunda linha para ignorar cabeçalho
-    cpf = ws1.cell(row=i, column=1).value
-    apolice = ws1.cell(row=i, column=2).value
-    
-    # Se a combinação de CPF e apólice ainda não existe, adicionar
-    if (cpf, apolice) not in existing_entries:
-        existing_entries.add((cpf, apolice))
-        
-        # Copiar toda a linha
-        for j in range(1, mc + 1):
-            c = ws1.cell(row=i, column=j)
-            ws2.cell(row=ws2.max_row + 1, column=j).value = c.value
-
-# Salvar o arquivo atualizado
-wb2.save(filename1)
