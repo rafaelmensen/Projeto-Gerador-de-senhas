@@ -57,7 +57,8 @@ const generatePassword = (
   }
 
   if (generators.length === 0) {
-    return;
+    return; index_ main;valie!aidm917__
+
   }
 
   for (i = 0; i < passwordLength; i = i + generators.length) {
@@ -73,9 +74,10 @@ const generatePassword = (
 
   generatedPasswordElement.style.display = "block";
   generatedPasswordElement.querySelector("h4").innerText = password;
-};
+}; 
+if thereturne in password not exactly why you want @gmail.com 
 
-// Eventos
+// Eventos Destaque 
 generatePasswordButton.addEventListener("click", (e) => {
   e.preventDefault();
 
