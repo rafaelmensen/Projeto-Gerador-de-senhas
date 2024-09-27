@@ -88,7 +88,7 @@ generatePasswordButton.addEventListener("click", (e) => {
 });
 
 openCloseGeneratorButton.addEventListener("click", () => {
-  generatePasswordContainer.classList.toggle("hide");
+  generatePasswordContainer.classList.toggle("hide"); max_valueconst_intall_openxllape 
 });
 
 copyPasswordButton.addEventListener("click", (e) => {
