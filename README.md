@@ -1,30 +1,15 @@
+Roteiro básico:
+Nome colaborador: .....
+Produto: informe aqui o produto que vai ser trabalhado
 
-## Projeto Gerador de Senhas
+Metodologia de cálculo: é SALDO? é INCREMENTO? Como funciona a conta do produto? Quais ações interferem no REALIZADO?
 
-Este é um projeto que visa criar um aplicativo simples para gerar senhas seguras de forma rápida e fácil, utilizando JavaScript, CSS e HTML. Senhas seguras são essenciais para a segurança online, ajudando a proteger contas e informações sensíveis contra acesso não autorizado.
+Detalhe! O que impacta aquele produto? Tem alguma regrinha específica? Vá a fundo para entender de fato como ele funciona
 
-### Funcionalidades Principais:
+Estratégia para as agências: como ajudar os colaboradores da agência a atingir a meta? Quais relatórios do PowerBI já temos e como extrair o melhor deles?
 
-- **Gerador de Senhas Seguras:** O aplicativo gera senhas aleatórias utilizando caracteres alfanuméricos, símbolos e letras maiúsculas/minúsculas.
-- **Personalização:** Oferece opções para especificar o comprimento da senha e incluir/excluir diferentes tipos de caracteres.
-- **Copiar para a Área de Transferência:** Permite ao usuário copiar facilmente a senha gerada para a área de transferência, facilitando sua utilização em outros contextos.
+IDEIAS FUTURAS: Traga sugestões do que podem ser melhorados no produto, estratégias para negócios, etc
 
-### Como Contribuir:
+APRESENTE! A ideia é ensinar os colegas da equipe de uma forma clara e objetiva para que todos possamos ser multiplicadores de conhecimento
 
-Se você deseja contribuir para este projeto, fique à vontade para fazer um fork do repositório, implementar melhorias ou corrigir problemas existentes. Certifique-se de seguir as diretrizes de contribuição e de abrir um pull request com suas alterações.
 
-### Tecnologias Utilizadas:
-
-- **JavaScript**
-- **CSS**
-- **HTML**
-- 
-<p> link do projeto no LinkedIn </p>
-<p> https://www.linkedin.com/posts/rafael-mensen-9462641b7_html-css-javascript-activity-7178374279569293315-jJL2?utm_source=share&utm_medium=member_android </p>
-
-<div style="display: inline_block"><br>
-  <img align="center" alt="Rafa-HTML" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg">
-  <img align="center" alt="Rafa-CSS" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg">
-  <img align="center" alt="Rafa-Js" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg">
-</div>
-  
